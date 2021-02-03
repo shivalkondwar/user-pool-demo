@@ -1,0 +1,15 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: 'user-pool-demo
+
+  Sample SAM Template for user-pool-demo
+
+  '
+Globals:
+  Function:
+    Timeout: 3
+Resources:
+  DemoUserPool:
+    Type: AWS::Cognito::UserPool
+    Properties:
+      UserPoolName: DemoPool

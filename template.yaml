@@ -1,0 +1,43 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  user-pool-demo
+
+  Sample SAM Template for user-pool-demo
+
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Globals:
+  Function:
+    Timeout: 3
+
+Resources:
+  DemoUserPool:
+    Type: AWS::Cognito::UserPool
+    Properties:
+      # AccountRecoverySetting: AccountRecoverySetting
+      # AdminCreateUserConfig: AdminCreateUserConfig
+      # AliasAttributes:
+      #   - String
+      # AutoVerifiedAttributes:
+      #   - String
+      # DeviceConfiguration: DeviceConfiguration
+      # EmailConfiguration: EmailConfiguration
+      # EmailVerificationMessage: String
+      # EmailVerificationSubject: String
+      # EnabledMfas:
+      #   - String
+      # LambdaConfig: LambdaConfig
+      # MfaConfiguration: String
+      # Policies: Policies
+      # Schema:
+      #   - SchemaAttribute
+      # SmsAuthenticationMessage: String
+      # SmsConfiguration: SmsConfiguration
+      # SmsVerificationMessage: String
+      # UsernameAttributes:
+      #   - String
+      # UsernameConfiguration: UsernameConfiguration
+      # UserPoolAddOns: UserPoolAddOns
+      UserPoolName: DemoPool
+      # UserPoolTags: Json
+      # VerificationMessageTemplate: VerificationMessageTemplate
