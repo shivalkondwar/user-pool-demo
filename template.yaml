@@ -55,3 +55,38 @@ Resources:
         DefaultEmailOption: CONFIRM_WITH_LINK
         EmailMessageByLink: Please click the link below to verify your email address. {##Verify Email##}
         EmailSubjectByLink: Your verification link
+
+  DemoUserPoolClient:
+    Type: AWS::Cognito::UserPoolClient
+    Properties:
+      # AccessTokenValidity: Integer
+      # AllowedOAuthFlows:
+      #   - String
+      # AllowedOAuthFlowsUserPoolClient: Boolean
+      # AllowedOAuthScopes:
+      #   - String
+      # AnalyticsConfiguration: AnalyticsConfiguration
+      # CallbackURLs:
+      #   - String
+      ClientName: DemoClient
+      # DefaultRedirectURI: String
+      # ExplicitAuthFlows:
+      #   - String
+      # GenerateSecret: Boolean
+      # IdTokenValidity: Integer
+      # LogoutURLs:
+      #   - String
+      PreventUserExistenceErrors: ENABLED
+      ReadAttributes:
+        - email
+        - custom:role
+        - custom:is_first_login
+      # RefreshTokenValidity: Integer
+      # SupportedIdentityProviders:
+      #   - String
+      # TokenValidityUnits: TokenValidityUnits
+      UserPoolId: !Ref DemoUserPool
+      WriteAttributes:
+        - email
+        - custom:role
+        - custom:is_first_login
