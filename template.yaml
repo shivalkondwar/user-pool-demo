@@ -14,30 +14,44 @@ Resources:
   DemoUserPool:
     Type: AWS::Cognito::UserPool
     Properties:
-      # AccountRecoverySetting: AccountRecoverySetting
+      AccountRecoverySetting:
+        RecoveryMechanisms:
+          - Name: verified_email
+            Priority: 1
+          - Name: verified_phone_number
+            Priority: 2
       # AdminCreateUserConfig: AdminCreateUserConfig
       # AliasAttributes:
       #   - String
-      # AutoVerifiedAttributes:
-      #   - String
+      AutoVerifiedAttributes:
+        - email
       # DeviceConfiguration: DeviceConfiguration
       # EmailConfiguration: EmailConfiguration
-      # EmailVerificationMessage: String
-      # EmailVerificationSubject: String
+      # EmailVerificationMessage: Please click the link below to verify your email address. {####}
+      # EmailVerificationSubject: Your verification link
       # EnabledMfas:
-      #   - String
+      #   - SOFTWARE_TOKEN_MFA
       # LambdaConfig: LambdaConfig
-      # MfaConfiguration: String
+      # MfaConfiguration: OPTIONAL
       # Policies: Policies
-      # Schema:
-      #   - SchemaAttribute
+      Schema:
+        - AttributeDataType: String
+          Name: email
+        - AttributeDataType: String
+          Name: is_first_login
+        - AttributeDataType: String
+          Name: role
       # SmsAuthenticationMessage: String
       # SmsConfiguration: SmsConfiguration
       # SmsVerificationMessage: String
-      # UsernameAttributes:
-      #   - String
-      # UsernameConfiguration: UsernameConfiguration
+      UsernameAttributes:
+        - email
+      UsernameConfiguration:
+        CaseSensitive: true
       # UserPoolAddOns: UserPoolAddOns
       UserPoolName: DemoPool
       # UserPoolTags: Json
-      # VerificationMessageTemplate: VerificationMessageTemplate
+      VerificationMessageTemplate:
+        DefaultEmailOption: CONFIRM_WITH_LINK
+        EmailMessageByLink: Please click the link below to verify your email address. {##Verify Email##}
+        EmailSubjectByLink: Your verification link
